@@ -60,26 +60,5 @@ public class ActivityRvJobs extends AppCompatActivity {
                 RvJobsAdapter rvJobsAdapter=new RvJobsAdapter(this,jobResults);
                 rvJobs.setAdapter(rvJobsAdapter);
         }
-//        @Override
-//        public boolean onCreateOptionsMenu(Menu menu) {
-//                MenuInflater inflater = getMenuInflater();
-//                MenuItem item=menu.findItem(R.id.search);
-//                SearchView searchView=(SearchView) item.getActionView();
-//                SearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//                        @Override
-//                        public boolean onQueryTextSubmit(String query) {
-//                                return false;
-//                        }
-//
-//                        @Override
-//                        public boolean onQueryTextChange(String newText) {
-//                                rvJobsAdapter.getFilter().filter(newText);
-//
-//                                return false;
-//                        }
-//                });
-//
-//
-//                return super.onCreateOptionsMenu(menu);
-   //     }
+
 }
