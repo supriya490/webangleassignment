@@ -1,7 +1,5 @@
 package com.example.webangleassignment.Network;
 
-import com.example.webangleassignment.retroinstance;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
