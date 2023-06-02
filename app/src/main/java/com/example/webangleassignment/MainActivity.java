@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-             useradapter.getFilter().filter(newText);
+//             useradapter.getFilter().filter(newText);
                 return false;
             }
         });
