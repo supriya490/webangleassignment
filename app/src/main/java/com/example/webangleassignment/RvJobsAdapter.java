@@ -20,19 +20,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class RvJobsAdapter extends RecyclerView.Adapter<RvJobsAdapter.RVHolder>  {
+public class RvJobsAdapter extends RecyclerView.Adapter<RvJobsAdapter.RVHolder> implements Filterable {
     List<JobResult> jobResultList;
-
+    List<JobResult> jobResultListFull;
     Context context;
-    public RvJobsAdapter(Context context, List<JobResult> jobResultList){
-        this.context=context;
-        this.jobResultList=jobResultList;
-           // this.jobsearchall=new ArrayList<>(jobResultList);
+
+    public RvJobsAdapter(Context context, List<JobResult> jobResultList) {
+        this.context = context;
+        this.jobResultList = jobResultList;
+        this.jobResultListFull = new ArrayList<>(jobResultList);
     }
+
     @NonNull
     @Override
     public RVHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.item_job,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_job, parent, false);
         return new RVHolder(view);
     }
 
@@ -43,14 +45,13 @@ public class RvJobsAdapter extends RecyclerView.Adapter<RvJobsAdapter.RVHolder> 
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context,ActivityJob.class);
-                int jobid=jobResultList.get(position).getId();
-                intent.putExtra("jobIdB",""+jobid);
+                Intent intent = new Intent(context, ActivityJob.class);
+                int jobid = jobResultList.get(position).getId();
+                intent.putExtra("jobIdB", "" + jobid);
                 context.startActivity(intent);
             }
         });
     }
-
 
 
     @Override
@@ -58,14 +59,49 @@ public class RvJobsAdapter extends RecyclerView.Adapter<RvJobsAdapter.RVHolder> 
         return jobResultList.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return jobFilter;
+    }
 
-    public class RVHolder extends RecyclerView.ViewHolder{
+    private Filter jobFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<JobResult> filteredList = new ArrayList<>();
+            if (charSequence == null || charSequence.length() == 0) {
+                filteredList.addAll(jobResultListFull);
+            } else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                for (JobResult item : jobResultListFull) {
+                    if (item.getRole().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            jobResultList.clear();
+            jobResultList.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+
+        }
+    };
+
+    public class RVHolder extends RecyclerView.ViewHolder {
         TextView role;
         CardView card;
-        public RVHolder(@NonNull View itemView){
+
+        public RVHolder(@NonNull View itemView) {
             super(itemView);
-            card=itemView.findViewById(R.id.card);
-            role=itemView.findViewById(R.id.role);
+            card = itemView.findViewById(R.id.card);
+            role = itemView.findViewById(R.id.role);
         }
     }
 }

@@ -11,22 +11,93 @@
     <TextView
         android:id="@+id/role"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:padding="10dp"
         android:textSize="28dp"
-        android:textStyle="bold"
-        android:layout_height="wrap_content"/>
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/company"
         android:layout_width="match_parent"
-        android:text="Company - "
+        android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textStyle="bold"
-        android:layout_height="wrap_content"/>
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+    <Button
+        android:id="@+id/salary"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Job Details"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/etype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/vacancies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/exp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/degree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+    <Button
+        android:id="@+id/callbtn"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Description"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/desc"
         android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
 
 
 </LinearLayout>
